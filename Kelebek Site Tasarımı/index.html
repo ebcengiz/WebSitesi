@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap-reboot.css" media="screen"/>
+    <link rel="stylesheet" href="bootstrap-grid.css" media="screen"/>
+    <style type="text/css">
+
+
+        body {
+            font-family: Ubuntu-Light;
+            line-height: 1.38em;
+            overflow-x: hidden;
+            padding-top: 105px;
+        }
+
+        h3.baslik {
+            color: black;
+            font-family: Podkova-Bold;
+            font-size: 25px;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+
+        #baglantilar {
+            background-color: RGBA(27, 27, 27, 1.00);
+            overflow: hidden;
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+        }
+
+        #baglantilar a {
+            padding: 6px 15px 5px;
+            font-size: 15px;
+            font-family: Ubuntu;
+            font-weight: 400;
+            display: block;
+            float: right;
+            color: RGBA(183, 183, 183, 1.00);
+        }
+
+        #baglantilar a.dil {
+            background: RGBA(226, 184, 135, 1.00) url(images/ikon/dunya.svg) 10px center no-repeat;
+            background-size: 15px;
+            color: black;
+            padding-left: 33px;
+        }
+
+
+        #anamenu {
+            overflow: hidden;
+            position: fixed;
+            top: 0px;
+            left: 0;
+            background: white;
+            z-index: 99;
+            box-shadow: 0 0 100px black;
+        }
+
+        #anamenu .logo {
+            display: inline-block;
+            float: left;
+            font-family: Podkova-Bold;
+            font-size: 24px;
+            color: black;
+            line-height: 28px;
+            padding: 13px 20px 13px 82px;
+            background: url(images/logo9.png) left center no-repeat;
+            background-size: auto 90%;
+        }
+
+        #anamenu .menu {
+            float: left;
+            position: relative;
+            z-index: 10;
+        }
+
+        #anamenu .menu span.etiket {
+            font-family: Ubuntu-Medium;
+            font-size: 14px;
+            color: black;
+            padding: 30px 40px 30px 20px;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: all .4s ease;
+            z-index: 10;
+        }
+
+
+        #anamenu .menu:hover span.etiket {
+            padding: 30px;
+        }
+
+
+        #anamenu .menu:hover span.etiket:after {
+            left: 50%;
+            right: 50%;
+            bottom: -4px;
+            padding: 6px;
+            top: auto;
+            transform: rotate(-135deg) translateX(-5px);
+            background: RGBA(34, 34, 34, 1.00);
+            margin-left: -10px;
+
+        }
+
+
+        #anamenu .container-fluid {
+            position: fixed;
+            background: #d1d2d4;
+            left: 0;
+            min-height: 500px;
+            transition: all .6s ease;
+            display: none;
+            padding-top: 40px;
+        }
+
+        #anamenu .genelmenu:hover .container-fluid,
+        #anamenu .menu:hover .container-fluid {
+            display: block;
+        }
+
+        #anamenu .menu h4.baslik {
+            font-family: Podkova;
+            font-size: 20px;
+            color: black;
+            margin-bottom: 15px;
+
+        }
+
+        #anamenu .menu h4.baslik:hover {
+            text-shadow: 0 0 200px #fff;
+        }
+
+        #anamenu .menu a.baglanti,
+        #anamenu .menu button.altmenu {
+            font-size: 16px;
+            font-family: Ubuntu;
+            color: black;
+            display: block;
+            padding: 4px 0;
+            width: 100%;
+            text-align: left;
+            transition: all .4s ease;
+        }
+
+        #anamenu .menu button.altmenu {
+            background: none;
+            border: 0;
+            position: relative;
+            width: 80%;
+            padding-left: 15px;
+        }
+
+
+        #anamenu .menu a.baglanti:hover {
+            color: black;
+            text-decoration: none;
+        }
+
+
+        #anamenu .genelmenu .container-fluid {
+            top: 30px;
+            display: block;
+            min-height: 100%;
+        }
+
+        #slaytlar {
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 660px;
+            padding-top: 200px;
+            transition: all 1s ease-in-out;
+            margin-top: -26px;
+        }
+
+        #slaytlar .altbaslik {
+            color: #E9B77F;
+            font-family: "Ubuntu-Medium";
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 3px;
+            display: block;
+        }
+
+        #slaytlar .anabaslik {
+            font-family: Podkova-Bold;
+            font-size: 64px;
+            color: white;
+            display: block;
+            line-height: 64px;
+            margin-top: 15px;
+        }
+
+        #slaytlar .metin {
+            font-size: 20px;
+            line-height: 31px;
+            color: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #slaytlar .baglanti {
+            color: white;
+            padding: 15px 50px;
+            border: 1px solid white;
+            border-radius: 3px;
+            display: inline-block;
+            margin-top: 20px;
+            font-family: Ubuntu-Medium;
+            background: rgba(255, 255, 255, .05);
+        }
+
+        #slaytlar .oklar {
+            margin-top: 220px;
+            float: right;
+        }
+
+        #slaytlar .oklar button {
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 10px;
+            opacity: .3;
+            background: transparent;
+        }
+
+        #slaytlar .oklar button.aktif {
+            opacity: 1;
+        }
+
+        #slaytlar .oklar button.sag {
+            transform: rotate(-45deg);
+        }
+
+        #slaytlar .oklar button.sol {
+            transform: rotate(135deg);
+            margin-right: 10px;
+        }
+
+
+        #kutular {
+            text-align: center;
+            padding-bottom: 85px;
+            margin-top: -35px;
+        }
+
+        #kutular a {
+            width: 70px;
+            height: 70px;
+            margin-left: 20px;
+            margin-right: 20px;
+            display: inline-block;
+            border: 2px solid #0D1461;
+            border-radius: 2px;
+            background-color: white;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 50% 50%;
+            position: relative;
+            transition: all .4s ease-in-out;
+        }
+
+        #kutular a:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px RGBA(225, 184, 135, 1.00);
+            border-color: RGBA(225, 184, 135, 1.00);
+            filter: sepia(100%);
+        }
+
+        #kutular a:after {
+            content: attr(data-etiket);
+            position: absolute;
+            top: 75px;
+            left: 50%;
+            right: 50%;
+            transform: translateX(-50%);
+            display: block;
+            width: 100%;
+            font-family: "Ubuntu-Medium";
+            font-size: 12px;
+            color: #0D1461;
+            line-height: 1.38em;
+        }
+
+
+        #medya {
+            background: #FAFAFA;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        #medya .gorsel {
+            width: 100%;
+            height: 180px;
+            background-color: white;
+            background-size: 100% auto;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            border-radius: 3px;
+            transition: filter .8s ease-in-out, background .4s ease;
+            filter: grayscale(100%);
+            transform-origin: center top;
+        }
+
+        #medya .gorsel:hover {
+            filter: grayscale(0%);
+        }
+
+        #medya .haberler .tarih,
+        #medya .duyurular .tarih {
+            background: transparent url(images/ikon/takvim.svg) left 9px no-repeat;
+            padding: 5px 0 5px 20px;
+            font-size: 12px;
+            color: RGBA(140, 140, 140, .6);
+            font-weight: 600;
+        }
+
+        #medya .baglantilar a {
+            display: block;
+            color: black;
+            font-size: 14px;
+            border-bottom: 1px solid #DADADA;
+            padding: 10px 10px 10px 25px;
+            background: transparent url(images/ikon/ok-sag.svg) left center no-repeat;
+        }
+
+        #medya .baglantilar a.aktif {
+            background: none;
+            font-weight: 600;
+            padding-left: 0;
+        }
+
+        #medya .etkinlikler a {
+            display: block;
+            background: white;
+            position: relative;
+            padding-top: 0px;
+            padding-left: 90px;
+            margin-bottom: 40px;
+            min-height: 80px;
+            color: black;
+        }
+
+        #medya .etkinlikler a:hover span {
+            text-decoration: none;
+        }
+
+        #medya .etkinlikler a .tarih {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 80px;
+            background: RGBA(249, 246, 243, 1.00);
+            color: black;
+            font-size: .9rem;
+            text-align: center;
+            padding: 18px 0 0 0;
+            border: 2px solid RGBA(226, 184, 135, 1.00);
+            border-radius: 3px;
+            line-height: 1.38em !important;
+        }
+
+        #medya .etkinlikler a .tarih:before {
+            content: attr(data-gun);
+            display: block;
+            font-family: Podkova;
+            font-size: 32px;
+            padding-bottom: 5px;
+        }
+
+        #medya .etkinlikler a .saat,
+        #medya .etkinlikler a .konum {
+            background: transparent left 9px no-repeat;
+            padding: 5px 0 5px 20px;
+            font-size: 12px;
+            color: RGBA(140, 140, 140, .6);
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        #medya .etkinlikler a .saat {
+            background-image: url(images/ikon/saat.svg);
+        }
+
+        #medya .etkinlikler a .konum {
+            background-image: url(images/ikon/pin.svg);
+            background-position: 5px 9px;
+        }
+
+        #medya .etkinlikler a.aktif {
+            background-color: RGBA(249, 246, 243, 1.00);
+            border: 2px solid RGBA(226, 184, 135, 1.00);
+            font-size: 22px;
+            color: black;
+            text-transform: uppercase;
+            padding-right: 20px;
+            padding-top: 55px;
+            padding-left: 120px;
+            line-height: 1.3em;
+            font-family: Ubuntu-Medium;
+            overflow: hidden;
+            min-height: 175px;
+        }
+
+        #medya .etkinlikler a.aktif:before {
+            content: "";
+            position: absolute;
+            background: RGBA(226, 184, 135, 1.00);
+            width: 300px;
+            height: 300px;
+            left: -200px;
+            top: 0;
+            transform: rotateZ(-20deg);
+        }
+
+        #medya .etkinlikler a.aktif span.tarih {
+            border: 0;
+            background: transparent;
+        }
+
+        #medya .etkinlikler a.aktif br,
+        #medya .etkinlikler a.aktif span.saat,
+        #medya .etkinlikler a.aktif span.konum {
+            display: none;
+        }
+
+
+        #universiteliyim {
+            margin-bottom: 130px;
+            padding-top: 110px;
+        }
+
+        #universiteliyim .metin {
+            color: #8C8C8C;
+            line-height: 28px;
+            font-size: 16px;
+            margin-bottom: 75px;
+        }
+
+        #universiteliyim .oklar button {
+            border: solid #0D1461;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 5px;
+            opacity: .3;
+        }
+
+        #universiteliyim .oklar button.aktif {
+            opacity: 1;
+        }
+
+        #universiteliyim .oklar button.sag {
+            transform: rotate(-45deg);
+        }
+
+        #universiteliyim .oklar button.sol {
+            transform: rotate(135deg);
+            margin-right: 10px;
+        }
+
+        #universiteliyim .col-8:after {
+            content: "";
+            position: absolute;
+            width: 3000px;
+            height: 311px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 11%, #ffffff 100%);
+            margin-left: 100%;
+        }
+
+        #universiteliyim .kutular {
+            white-space: nowrap;
+            position: absolute;
+            width: 3000px;
+        }
+
+        #universiteliyim .kutu {
+            width: 230px;
+            height: 310px;
+            float: left;
+            margin-right: 30px;
+        }
+
+        #universiteliyim .kutu .resim {
+            width: 100%;
+            height: 280px;
+            display: block;
+            border-radius: 3px;
+        }
+
+        #universiteliyim .kutu .baglanti {
+            color: white;
+            background-color: #0D1461;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 20px;
+            width: 80%;
+            display: block;
+            text-align: center;
+            margin: -31px auto 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+
+        #altbant .baglanti {
+            color: black;
+            display: block;
+            margin-top: 15px;
+            font-family: Ubuntu-Light;
+            font-size: 16px;
+            letter-spacing: 1.2px;
+        }
+
+        #altbant .baglanti-sm {
+            float: right;
+            display: inline-block;
+            padding: 15px 4px 2px 0;
+        }
+
+        #enaltbant {
+            background: #262626;
+        }
+
+        #enaltbant .baglanti {
+            color: #BDBDBD;
+            display: block;
+            font-family: Ubuntu-Light;
+            font-size: 14px;
+            letter-spacing: 1.2px;
+            padding: 27px 0;
+            margin-right: 30px;
+            float: left;
+        }
+
+        #enaltbant .menu {
+            float: right;
+        }
+
+
+        #menulogo {
+
+
+            font-family: Ubuntu;
+            font-size: 20px;
+            color: white;
+            display: block;
+            line-height: 2px;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid" id="anamenu">
+    <div class="container">
+        <div class="logo">
+            Kelebek<br/>
+            Site Tasarımı
+        </div>
+        <div class="menuler">
+            <div class="menu">
+                <a href="index.html"> <span class="etiket">ANASAYFA</span></a>
+            </div>
+        </div>
+
+        <div class="menuler">
+            <div class="menu" id="webtasarim">
+                <span class="etiket">WEB TASARIM</span>
+                <div class="container-fluid">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <h4 class="baslik">HTML</h4>
+                                <a class="baglanti" href="index5.html">HTML Nedir?</a>
+                                <a class="baglanti" href="index7.html">HTML Etiketleri ve HTML Etiketlerinin
+                                    Anlamları</a>
+                                <a class="baglanti" href="#">HTML Tablolar</a>
+                            </div>
+                            <div class="col-4">
+                                <h4 class="baslik">CSS</h4>
+                                <a class="baglanti">CSS Nedir?</a>
+                                <a class="baglanti">CSS Kodları Nelerdir?</a>
+                                <a class="baglanti">CSS Projeye Nasıl Entegre Edilir?</a>
+
+                            </div>
+                            <div class="col-4">
+                                <h4 class="baslik">JAVA</h4>
+                                <a class="baglanti" href="#">JAVA Nedir?</a>
+                                <a class="baglanti" href="#">JAVA Projeye Nasıl Entegre Edilir?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu" id="django">
+                <a href="index2.html"><span class="etiket">DJANGO</span></a>
+                <div class="container-fluid">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <h3 class="baslik">DJANGO</h3>
+                                <a class="baglanti" href="index2.html">Django nedir?</a>
+                                <a class="baglanti" href="#">Neden Django kullanalım?</a>
+                                <a class="baglanti" href="#">Django Kurulumu</a>
+                                <a class="baglanti" href="#">Django İle Veritabanı Kurulumu</a>
+                                <a class="baglanti" href="#">Django Kurulumu</a>
+                            </div>
+                            <div class="col-6">
+                                <h3 class="baslik">DJANGO WEB FRAMEWORK</h3>
+                                <a class="baglanti" href="#">Neden Bir Framework'e ihtiyaç duyarız?</a>
+                                <a class="baglanti" href="#">Model-Template-View(MTV)</a>
+                                <a class="baglanti" href="#">Genişletilebilir Yönetim Arayüzü</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu" id="galeri">
+                <a href="galeri.html"><span class="etiket">GALERİ</span></a>
+            </div>
+
+            <div class="menu" id="hakkimda">
+                <a href="hakkimda.html"><span class="etiket">HAKKIMDA</span></a>
+            </div>
+            <div class="menu" id="giris">
+                <a href="giris.html"> <span class="etiket">GİRİŞ</span></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid" id="slaytlar" style="background-image: url(images/aaa.png);">
+
+
+</div>
+<div class="container-fluid" id="medya">
+    <div class="container">
+        <div class="row">
+            <div class="col-4 haberler">
+                <h3 class="baslik">
+                    Html </h3>
+                <div class="gorsel" style="background-image: url(images/html.png)"></div>
+                <div class="baglantilar">
+                    <a href="index5.html">HTML nedir?</a>
+                    <a href="index7.html">HTML Etiketleri ve HTML Etiketlerinin Anlamları</a>
+                    <a href="#">HTML Tablolar</a>
+                </div>
+            </div>
+
+            <div class="col-4 duyurular">
+                <h3 class="baslik">
+                    Spring Freamwork
+                </h3>
+                <div class="gorsel" style="background-image: url(images/logo5.png)"></div>
+
+                <div class="baglantilar">
+                    <a href="index1.html">Spring Framework Nedir?</a>
+                    <a href="index3.html">Spring Framework Kullanım Avantajları</a>
+                    <a href="index4.html">Spring ile Tasarım Sablonu Kullanımı </a>
+                </div>
+            </div>
+            <div class="col-4 duyurular">
+                <h3 class="baslik">
+                    Bootstrap
+                </h3>
+                <div class="gorsel" style="background-image: url(images/logo6.png)"></div>
+
+                <div class="baglantilar">
+                    <a href="#">Bootstrap Nedir?</a>
+                    <a href="#">Bootstrap Projeye Nasıl Entegre Edilir?</a>
+                    <a href="#">Bootstrap Nerelerde Kullanılır?</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" id="enaltbant">
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <a href="#" class="baglanti">Coded By Enes Bugra Cengiz Copyright © 2021. Tüm hakları saklıdır. </a>
+            </div>
+
+            <div class="col-2">
+                <div class="baslik" style="color: white;">Takip Edin</div>
+                <a href="https://m.facebook.com/profile.php?id=100068508827665&refsrc=https%3A%2F%2Fwww.facebook.com%2Fprofile.php&_rdr"
+                   target="_blank" class="baglanti-sm"><img src="images/sm-fb.svg"></a>
+                <a href="https://twitter.com/sitetasar?s=11" target="_blank" class="baglanti-sm"><img
+                        src="images/sm-tw.svg"></a>
+                <a href="https://www.instagram.com/kelebeksitetasarim1/" target="_blank" class="baglanti-sm"><img
+                        src="images/sm-insta.svg"></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

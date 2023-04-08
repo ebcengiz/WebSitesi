@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap-reboot.css" media="screen"/>
+    <link rel="stylesheet" href="bootstrap-grid.css" media="screen"/>
+    <style type="text/css">
+        body {
+            background-color: #fbfbfb;
+        }
+
+        #anamenu {
+            overflow: hidden;
+            position: fixed;
+            top: 0px;
+            left: 0;
+            background: white;
+            z-index: 99;
+            box-shadow: 0 0 100px black;
+        }
+
+        #anamenu .logo {
+            display: inline-block;
+            float: left;
+            font-family: Podkova-Bold;
+            font-size: 24px;
+            color: black;
+            line-height: 28px;
+            padding: 13px 20px 13px 82px;
+            background: url(images/logo9.png) left center no-repeat;
+            background-size: auto 90%;
+        }
+
+        #anamenu .menu {
+            float: left;
+            position: relative;
+            z-index: 10;
+        }
+
+        #anamenu .menu span.etiket {
+            font-family: Ubuntu-Medium;
+            font-size: 14px;
+            color: black;
+            padding: 30px 40px 30px 20px;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: all .4s ease;
+            z-index: 10;
+        }
+
+        #anamenu .baglantibir {
+            font-family: Ubuntu-Medium;
+            font-size: 14px;
+            color: black;
+            padding: 30px 40px 30px 20px;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: all .4s ease;
+            z-index: 10;
+        }
+
+        #anamenu .menu:hover span.etiket {
+            padding: 30px;
+        }
+
+
+        #anamenu .menu:hover span.etiket:after {
+            left: 50%;
+            right: 50%;
+            bottom: -4px;
+            padding: 6px;
+            top: auto;
+            transform: rotate(-135deg) translateX(-5px);
+            background: RGBA(34, 34, 34, 1.00);
+            margin-left: -10px;
+
+        }
+
+        #anamenu .menu span.etiket:hover {
+            background: #e7e7e7;
+        }
+
+        #anamenu .container-fluid {
+            position: fixed;
+            background: #e7e7e7;
+            left: 0;
+            min-height: 500px;
+            transition: all .6s ease;
+            display: none;
+            padding-top: 40px;
+        }
+
+        #anamenu .genelmenu:hover .container-fluid,
+        #anamenu .menu:hover .container-fluid {
+            display: block;
+        }
+
+        #anamenu .menu h4.baslik {
+            font-family: Podkova;
+            font-size: 20px;
+            color: black;
+            margin-bottom: 15px;
+
+        }
+
+        #anamenu .menu h4.baslik:hover {
+            text-shadow: 0 0 200px #fff;
+        }
+
+        #anamenu .menu a.baglanti,
+        #anamenu .menu button.altmenu {
+            font-size: 16px;
+            font-family: Ubuntu;
+            color: black;
+            display: block;
+            padding: 4px 0;
+            width: 100%;
+            text-align: left;
+            transition: all .4s ease;
+        }
+
+        #anamenu .menu button.altmenu {
+            background: none;
+            border: 0;
+            position: relative;
+            width: 80%;
+            padding-left: 15px;
+        }
+
+
+        #anamenu .menu a.baglanti:hover {
+            color: black;
+            text-decoration: none;
+        }
+
+
+        #anamenu .genelmenu .container-fluid {
+            top: 30px;
+            display: block;
+            min-height: 100%;
+        }
+
+
+        #hakkimda {
+            background-color: #f7f7f7;
+            margin-top: 18px;
+            padding: 100px;
+            font-family: Ubuntu;
+
+        }
+
+        #hakkimda .resim {
+            background-color: black;
+            width: 593px;
+            height: 334px;
+            border: 0px solid #e7e7e7;
+            background: no-repeat;
+            margin-top: 33px;
+            margin-bottom: 43px;
+            margin-left: 338px;
+
+
+        }
+
+        #hakkimda .metin {
+            color: black;
+            font-size: 12px;
+            font-family: Ubuntu;
+            margin-bottom: 11px;
+            margin-top: 11px;
+
+
+        }
+
+        #hakkimda .anabaslikbir {
+            font-family: Ubuntu;
+            font-size: 20px;
+            color: #65aa3b;
+            margin-top: 42px;
+            margin-bottom: 22px;
+        }
+
+        #hakkimda .metin:after {
+            content: "";
+            border: 1px solid black;
+            background: black;
+            display: block;
+            top: 15px;
+            width: 347px;
+
+        }
+
+        h3 .anabaslik {
+
+            color: red;
+            font-family: "Ubuntu-Medium";
+            font-size: 10px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        #metinbir {
+            color: black;
+            font-size: 10px;
+            font-family: Ubuntu;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        #enaltbant {
+            background: #262626;
+        }
+
+        #enaltbant .baglanti {
+            color: #BDBDBD;
+            display: block;
+            font-family: Ubuntu-Light;
+            font-size: 14px;
+            letter-spacing: 1.2px;
+            padding: 27px 0;
+            margin-right: 30px;
+            float: left;
+        }
+
+        #enaltbant .menu {
+            float: right;
+        }
+
+        .kayanresim {
+            margin-top: 96px;
+            margin-left: 253px;
+            left: 15px;
+            margin-top: 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container-fluid" id="anamenu">
+    <div class="container">
+        <div class="logo">
+            Kelebek<br/>
+            Site Tasarımı
+        </div>
+        <div class="menuler">
+            <div class="menu">
+                <a href="index.html"> <span class="etiket">ANASAYFA</span></a>
+            </div>
+        </div>
+
+        <div class="menuler">
+            <div class="menu" id="webtasarim">
+                <span class="etiket">WEB TASARIM</span>
+                <div class="container-fluid">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <h4 class="baslik">HTML</h4>
+                                <a class="baglanti" href="index5.html">HTML Nedir?</a>
+                                <a class="baglanti" href="#">HTML Etiketleri ve HTML Etiketlerinin Anlamları</a>
+                                <a class="baglanti" href="#">HTML Tablolar</a>
+                            </div>
+                            <div class="col-4">
+                                <h4 class="baslik">CSS</h4>
+                                <a class="baglanti">CSS Nedir?</a>
+                                <a class="baglanti">CSS Kodları Nelerdir?</a>
+                                <a class="baglanti">CSS Projeye Nasıl Entegre Edilir?</a>
+
+                            </div>
+                            <div class="col-4">
+                                <h4 class="baslik">JAVA</h4>
+                                <a class="baglanti" href="#">JAVA Nedir?</a>
+                                <a class="baglanti" href="#">JAVA Projeye Nasıl Entegre Edilir?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu" id="django">
+                <a href="index2.html"><span class="etiket">DJANGO</span></a>
+                <div class="container-fluid">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <h3 class="baslik">DJANGO</h3>
+                                <a class="baglanti" href="index2.html">Django nedir?</a>
+                                <a class="baglanti" href="#">Neden Django kullanalım?</a>
+                                <a class="baglanti" href="#">Django Kurulumu</a>
+                                <a class="baglanti" href="#">Django İle Veritabanı Kurulumu</a>
+                                <a class="baglanti" href="#">Django Kurulumu</a>
+                            </div>
+                            <div class="col-6">
+                                <h3 class="baslik">DJANGO WEB FRAMEWORK</h3>
+                                <a class="baglanti" href="#">Neden Bir Framework'e ihtiyaç duyarız?</a>
+                                <a class="baglanti" href="#">Model-Template-View(MTV)</a>
+                                <a class="baglanti" href="#">Genişletilebilir Yönetim Arayüzü</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu" id="galeri">
+                <a href="galeri.html"><span class="etiket">GALERİ</span></a>
+            </div>
+
+            <div class="menu" id="">
+                <a href="hakkimda.html"><span class="etiket">HAKKIMDA</span></a>
+            </div>
+            <div class="menu" id="giris">
+                <a href="giris.html"> <span class="etiket">GİRİŞ</span></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="container" id="hakkimda">
+    <div class="row">
+        <div class="col-12">
+            <div class="resim" style="background-image: url(images/spring.png)"></div>
+            <h3 class="anabaslikbir">Spring Framework Kullanım Avantajları</h3>
+            <div class="metinbir">• Spring, basit ve sadeleştirilmiş bir API sunarak, birçok açık kaynak ürünün
+                kullanımını ve entegrasyonunu kolaylaştırır.<br>
+                • Son yıllarda Java platformunun  (Java SE, Java EE) kullanımı, sunmuş olduğu detaylı API’lerden dolayı
+                zorlaşmıştır. Spring, kendi API’lerinin basit kullanımı ile bu sorunu çözmüştür.<br>
+                • Spring ile geliştirilen uygulamaların test edilebilirliği daha kolaydır.<br>
+                • Spring, kendine has özelliği olan Dependency Injection (bağımlılıkların enjekte edilmesi) metodu ile
+                nesneler arası bağlar, XML yapılandırma dosyaları üzerinden otomatik olarak gerçekleştirilir.<br>
+                • Spring, AOP (Aspect Oriented Programming) tarzı program yazılımını destekler. <br>
+                • (AOP ile transaction yönetimi, log ve güvenlik gibi modüller merkezi bir yerde toplanarak, programdan
+                bağımsız bir şekilde çağrılabilir.)<br>
+                • Spring Framework‘ü, yaklaşık 20 modülden/bileşenden/parçadan oluşur. <br>
+                • Tüm modüllerini kullanma zorunluluğu yoktur. Sadece gerekli modüller kullanılarak uygulama
+                geliştirebilir.<br>
+                • Spring, AOP (Aspect Oriented Programming) tarzı program yazılımını destekler.  (AOP ile transaction
+                yönetimi, log ve güvenlik gibi modüller merkezi bir yerde toplanarak, programdan bağımsız bir şekilde
+                çağrılabilir.)<br>
+                • Spring Framework‘ü, yaklaşık 20 modülden/bileşenden/parçadan oluşur. Tüm modüllerini kullanma
+                zorunluluğu yoktur. Sadece gerekli modüller kullanılarak uygulama geliştirebilir.
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid" id="enaltbant">
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <a href="#" class="baglanti">Coded By Enes Bugra Cengiz Copyright © 2021. Tüm hakları saklıdır. </a>
+            </div>
+
+            <div class="col-2">
+                <div class="baslik" style="color: white;">Takip Edin</div>
+                <a href="https://m.facebook.com/profile.php?id=100068508827665&refsrc=https%3A%2F%2Fwww.facebook.com%2Fprofile.php&_rdr"
+                   target="_blank" class="baglanti-sm"><img src="images/sm-fb.svg"></a>
+                <a href="https://twitter.com/sitetasar?s=11" target="_blank" class="baglanti-sm"><img
+                        src="images/sm-tw.svg"></a>
+                <a href="https://www.instagram.com/kelebeksitetasarim1/" target="_blank" class="baglanti-sm"><img
+                        src="images/sm-insta.svg"></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
